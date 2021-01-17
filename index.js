@@ -24,3 +24,26 @@ function fizzBuzz(input) {
     return result || input;
 }
 
+function checkSpeed(speed) {
+
+    const speedLimit = 70;
+    const kmPerPoint = 5;
+    const pointLimit = 12;
+
+    let trueSpeed = Math.floor(speed);
+
+    if (trueSpeed < speedLimit + kmPerPoint) {
+        console.log("Ok");
+    }
+    else {
+        trueSpeed = Math.round(trueSpeed / kmPerPoint) * kmPerPoint;
+        let points = (trueSpeed - speedLimit) / kmPerPoint;
+
+        if (points >= pointLimit) {
+            console.log('License Suspended');
+        }
+        else {
+            console.log('Points', points);
+        }
+    }
+}
