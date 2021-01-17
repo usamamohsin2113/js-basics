@@ -23,3 +23,4 @@ function fizzBuzz(input) {
 
     return result || input;
 }
+
