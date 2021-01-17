@@ -47,3 +47,10 @@ function checkSpeed(speed) {
         }
     }
 }
+
+function showNumbers(limit) {
+    for (let index = 0; index <= limit; index++) {
+        console.log(index, index % 2 === 0 ? "even" : "odd");
+    }
+
+}
