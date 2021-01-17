@@ -52,5 +52,16 @@ function showNumbers(limit) {
     for (let index = 0; index <= limit; index++) {
         console.log(index, index % 2 === 0 ? "even" : "odd");
     }
+}
 
+function countTruthy(array) {
+    let truthies = 0;
+
+    for (let param of array) {
+        if (param) {
+            truthies++;
+        }
+    }
+
+    return truthies;
 }
