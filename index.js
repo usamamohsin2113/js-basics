@@ -57,12 +57,34 @@ function calculateGrade(marks) {
 
 function showStars(stars) {
     for (let row = 0; row < stars; row++) {
-        let pattern='';
+        let pattern = '';
 
         for (let col = 0; col <= row; col++) {
-            pattern+='*';
+            pattern += '*';
         }
 
         console.log(pattern);
+    }
+}
+
+function isPrime(number) {
+    if (number === 1) {
+        return true;
+    }
+
+    for (let i = 2; i <= Math.floor(number / 2); i++) {
+        if (number % i === 0) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+function showPrimes(limit) {
+    for (let num = 0; num <= limit; num++) {
+        if (isPrime(num)) {
+            console.log(num);
+        }
     }
 }
