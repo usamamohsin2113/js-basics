@@ -29,9 +29,40 @@ function sum(limit) {
 
     for (let number = 0; number <= limit; number++) {
         if (number % 3 === 0 || number % 5 === 0) {
-            sum+=number;
+            sum += number;
         }
     }
 
     return sum;
+}
+
+function calculateGrade(marks) {
+    const avg = marks.reduce((a, b) => a + b) / marks.length;
+
+    if (avg >= 90) {
+        return 'A';
+    }
+    if (avg >= 80) {
+        return 'B';
+    }
+    if (avg >= 70) {
+        return 'C';
+    }
+    if (avg >= 60) {
+        return 'D';
+    }
+
+    return 'F';
+}
+
+function showStars(stars) {
+    for (let row = 0; row < stars; row++) {
+        let pattern='';
+
+        for (let col = 0; col <= row; col++) {
+            pattern+='*';
+        }
+
+        console.log(pattern);
+    }
 }
