@@ -187,18 +187,11 @@ function areSame(address1, address2) {
     return address1 === address2;
 }
 
-const BlogPost = {
-    title: "My Blog",
-    body: "My First Blog, Hello",
-    author: 'Usama',
-    views: 20,
-    comments: [{
-        author: 'Mosh',
-        body: 'You are doing good'
-    }, {
-        author: 'Ali',
-        body: 'Well Done!'
-    }],
-    isLive: true
-
-};
+function Post(title, body, author) {
+    this.title = title;
+    this.body = body;
+    this.author = author;
+    this.views = 0;
+    this.comments = [];
+    this.isLive = false;
+}
