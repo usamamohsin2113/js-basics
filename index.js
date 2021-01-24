@@ -88,3 +88,37 @@ function showPrimes(limit) {
         }
     }
 }
+
+const address = {
+    street: '3',
+    city: 'Lahore',
+    zipCode: 50100
+};
+
+function showAddress(address) {
+    for (const key in address) {
+        console.log(key, address[key]);
+    }
+}
+
+function createAddress(street, city, zipCode) {
+    return {
+        street,
+        city,
+        zipCode
+    };
+}
+
+function Address(street, city, zipCode) {
+    this.street = street,
+        this.city = city,
+        this.zipCode = zipCode
+}
+
+function areEqual(address1, address2) {
+
+}
+
+function areSame(address1, address2) {
+    return address1 === address2;
+}
