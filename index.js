@@ -24,6 +24,56 @@ function fizzBuzz(input) {
     return result || input;
 }
 
+function checkSpeed(speed) {
+
+    const speedLimit = 70;
+    const kmPerPoint = 5;
+    const pointLimit = 12;
+
+    let trueSpeed = Math.floor(speed);
+
+    if (trueSpeed < speedLimit + kmPerPoint) {
+        console.log("Ok");
+    }
+    else {
+        trueSpeed = Math.round(trueSpeed / kmPerPoint) * kmPerPoint;
+        let points = (trueSpeed - speedLimit) / kmPerPoint;
+
+        if (points >= pointLimit) {
+            console.log('License Suspended');
+        }
+        else {
+            console.log('Points', points);
+        }
+    }
+}
+
+function showNumbers(limit) {
+    for (let index = 0; index <= limit; index++) {
+        console.log(index, index % 2 === 0 ? "even" : "odd");
+    }
+}
+
+function countTruthy(array) {
+    let truthies = 0;
+
+    for (let param of array) {
+        if (param) {
+            truthies++;
+        }
+    }
+
+    return truthies;
+}
+
+function showProperties(obj) {
+    for (const key in obj) {
+        if (typeof obj[key] === 'string') {
+            console.log(key, obj[key]);
+        }
+    }
+}
+
 function sum(limit) {
     let sum = 0;
 
