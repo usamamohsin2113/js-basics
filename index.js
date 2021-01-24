@@ -164,3 +164,25 @@ function Address(street, city, zipCode) {
         this.city = city,
         this.zipCode = zipCode
 }
+
+function areEqual(address1, address2) {
+    if (Object.keys(address1).length === Object.keys(address2).length) {
+        for (const key in address1) {
+            if (key in address2) {
+                if (address1[key] !== address2[key]) {
+                    return false;
+                }
+            }
+            else {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    return false;
+}
+
+function areSame(address1, address2) {
+    return address1 === address2;
+}
