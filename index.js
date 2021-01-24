@@ -114,11 +114,3 @@ function Address(street, city, zipCode) {
         this.city = city,
         this.zipCode = zipCode
 }
-
-function areEqual(address1, address2) {
-
-}
-
-function areSame(address1, address2) {
-    return address1 === address2;
-}
