@@ -201,3 +201,93 @@ let priceRanges = [
     { label: "$$", toolTip: 'Moderate', minPerPerson: 11, maxPerPerson: 20 },
     { label: "$$$", toolTip: 'Expensive', minPerPerson: 21, maxPerPerson: 50 }
 ];
+
+function arrayFromRange(min, max) {
+    const output = [];
+
+    for (let index = min; index <= max; index++) {
+        output.push(index);
+    }
+
+    return output;
+}
+
+function includes(array, searchElement) {
+    return array.indexOf(searchElement) > -1;
+}
+
+function except(array, excluded) {
+    let output = [];
+    array.forEach(element => {
+        if (!excluded.includes(element)) {
+            output.push(element);
+        }
+    });
+
+    return output;
+}
+
+function move(array, index, offset) {
+    const position = index + offset;
+
+    if (position >= array.length || position < 0) {
+        console.error('Invalid offset.');
+        return;
+    }
+
+    const output = [...array];
+    const element = output.splice(index, 1)[0];
+    output.splice(position, 0, element);
+    return output;
+}
+
+function countOccurrences(array, searchElement) {
+    let count = 0;
+
+    array.forEach(element => {
+        if (element === searchElement) {
+            count++;
+        }
+    })
+
+    return count;
+}
+
+function countOccurrencesReduce(array, searchElement) {
+    return array.reduce((accumulator, current) => {
+        const occurence = (current === searchElement) ? 1 : 0;
+        return accumulator + occurence;
+    }, 0);
+}
+
+function getMax(array) {
+    let max = array.length > 0 ? array[0] : undefined;
+
+    array.forEach(e => {
+        if (max < e) {
+            max = e;
+        }
+    });
+
+    return max;
+}
+
+function getMaxReduce(array) {
+    return array.length > 0 ? array.reduce((accumulator, current) => {
+        return accumulator < current ? current : accumulator;
+    }) : undefined;
+}
+
+const movies = [
+    { title: 'a', year: 2018, rating: 4.5 },
+    { title: 'b', year: 2018, rating: 4.7 },
+    { title: 'c', year: 2018, rating: 3 },
+    { title: 'd', year: 2017, rating: 4.5 },
+];
+
+let filtered = movies.filter(value => value.year === 2018 && value.rating > 4)
+    .sort((a, b) => a.rating - b.rating)
+    .reverse()
+    .map(m => m.title);
+
+filtered.forEach(e => console.log(e)); 
