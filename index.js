@@ -254,10 +254,23 @@ function countOccurrences(array, searchElement) {
 }
 
 function countOccurrencesReduce(array, searchElement) {
-    return array.reduce((accumulator, current) => {
-        const occurence = (current === searchElement) ? 1 : 0;
-        return accumulator + occurence;
-    }, 0);
+    if (Array.isArray(array)) {
+        return array.reduce((accumulator, current) => {
+            const occurence = (current === searchElement) ? 1 : 0;
+            return accumulator + occurence;
+        }, 0);   
+    }
+
+    throw new Error("Not an array.");
+}
+
+const numbers=[1,2,3,4];
+
+try {
+    const count=countOccurrencesReduce(true, 1);
+    console.log(count);
+} catch (error) {
+    console.log(error.message);
 }
 
 function getMax(array) {
@@ -290,4 +303,29 @@ let filtered = movies.filter(value => value.year === 2018 && value.rating > 4)
     .reverse()
     .map(m => m.title);
 
-filtered.forEach(e => console.log(e)); 
+filtered.forEach(e => console.log(e));
+
+
+function sumParams(...param) {
+    let sum = 0;
+
+    param.forEach(v => {
+        if (Array.isArray(v)) {
+            if (v.length > 0) {
+                sum += v.reduce((s, c) => s + c);
+            }
+        }
+        else {
+            sum += v;
+        }
+    });
+
+    return sum;
+}
+
+const circle = {
+    radius: 1,
+    get area() {
+        return Math.PI * this.radius * this.radius;
+    }
+};
