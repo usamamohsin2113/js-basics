@@ -57,8 +57,25 @@ function powerOfNumber(number, exponent) {
     return number * powerOfNumber(number, exponent - 1);
 }
 
+// - Flatten the array.
+function flattenArray(arr) {
+    if (Array.isArray(arr)) {
+        let result = [];
+        arr.forEach(v => {
+            if (Array.isArray(v)) {
+                result.concat(flattenArray(v));
+            }
+            else{
+                result.push(v);
+            }
+        });
+
+        return result;
+    }
+}
+
 // - Find Fib Series
-function fibonacciSeries(upperLimit){
-    
+function fibonacciSeries(upperLimit) {
+
 }
 
