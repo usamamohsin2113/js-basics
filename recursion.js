@@ -32,26 +32,23 @@
 
 // - Compute the sum of natural numbers upto N;
 function sumOfNaturalNumbers(limit) {
-    if (limit <= 0) {
-        return 0;
-    }
-
-    return limit + sumOfNaturalNumbers(limit - 1);
+    return limit <= 0 ? 0 : limit + sumOfNaturalNumbers(limit - 1);
 }
 
 // - Compute factorial!
 function factorial(number) {
-    if (number <= 1) {
-        return 1;
-    }
-
-    return number * factorial(number - 1);
+    return number <= 1 ? 1 : number * factorial(number - 1);
 }
 
 // - Find power of number
 function powerOfNumber(number, exponent) {
     if (exponent <= 0) {
         return 1;
+    }
+
+    if (exponent % 2 == 0) {
+        let result = powerOfNumber(number, exponent / 2);
+        return result * result;
     }
 
     return number * powerOfNumber(number, exponent - 1);
@@ -65,7 +62,7 @@ function flattenArray(arr) {
             if (Array.isArray(v)) {
                 result.concat(flattenArray(v));
             }
-            else{
+            else {
                 result.push(v);
             }
         });
