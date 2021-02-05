@@ -12,7 +12,7 @@
 // - Write a recursive function called someRecursive which accepts an array and a callback.
 //   The function returns true if a single value in the array returns true when passed to the callback.
 //   Otherwise it returns false.
-// - Flatten the array.
+// - Flatten the array. [1,[2,[3,4,[1,2,[1]],2],[2,3]]] = [1,2,3,4,1,2,1,2,2,3]
 // - NestedEvenSum: Write a recursive function called nestedEvenSum. Return the sum of all even numbers
 //   in an object which may contain nested objects.
 // - Given an array of words, return a new array containing each word capitalized
@@ -54,25 +54,23 @@ function powerOfNumber(number, exponent) {
     return number * powerOfNumber(number, exponent - 1);
 }
 
-// - Flatten the array.
+// - Flatten the array. [1,[2,[3,4,[1,2,[1]],2],[2,3]]] = [1,2,3,4,1,2,1,2,2,3]
 function flattenArray(arr) {
-    if (Array.isArray(arr)) {
-        let result = [];
-        arr.forEach(v => {
-            if (Array.isArray(v)) {
-                result.concat(flattenArray(v));
-            }
-            else {
-                result.push(v);
-            }
-        });
-
-        return result;
+    let result = [];
+    
+    for (const v of arr) {
+        if (Array.isArray(v)) {
+             result.push(...flattenArray(v));
+        }
+        else {
+            result.push(v);
+        }   
     }
+
+    return result;
 }
 
 // - Find Fib Series
 function fibonacciSeries(upperLimit) {
 
 }
-
