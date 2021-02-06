@@ -1,18 +1,19 @@
 // - Compute the sum of natural numbers upto N;
 // - Compute factorial!
 // - Find power of number
+// - Flatten the array. [1,[2,[3,4,[1,2,[1]],2],[2,3]]] = [1,2,3,4,1,2,1,2,2,3]
+// - Reverse the string "Usama Mohsin" = "nishoM amasU"
+
 // - Find Taylor Series upto eX terms
 // - Find Fib Series
 // - Find Combination nCr using recursion
 // - Solve the puzzle of tower of honai
 // - Given an array of strings, capitalize the first letter of each string in the array.
-// - Reverse the string
 // - Find maximum number in the array
 // - Check if string is Palindrome
 // - Write a recursive function called someRecursive which accepts an array and a callback.
 //   The function returns true if a single value in the array returns true when passed to the callback.
 //   Otherwise it returns false.
-// - Flatten the array. [1,[2,[3,4,[1,2,[1]],2],[2,3]]] = [1,2,3,4,1,2,1,2,2,3]
 // - NestedEvenSum: Write a recursive function called nestedEvenSum. Return the sum of all even numbers
 //   in an object which may contain nested objects.
 // - Given an array of words, return a new array containing each word capitalized
@@ -57,17 +58,24 @@ function powerOfNumber(number, exponent) {
 // - Flatten the array. [1,[2,[3,4,[1,2,[1]],2],[2,3]]] = [1,2,3,4,1,2,1,2,2,3]
 function flattenArray(arr) {
     let result = [];
-    
+
     for (const v of arr) {
         if (Array.isArray(v)) {
-             result.push(...flattenArray(v));
+            result.push(...flattenArray(v));
         }
         else {
             result.push(v);
-        }   
+        }
     }
 
     return result;
+}
+
+// - Reverse the string "Usama Mohsin" = "nishoM amasU"
+function reverseString(str) {
+    return str.length > 1 ? 
+        str[str.length - 1] + reverseString(str.substring(0, str.length - 1)) : 
+        str;
 }
 
 // - Find Fib Series
