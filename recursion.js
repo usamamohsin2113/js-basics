@@ -1,34 +1,35 @@
 // - Compute the sum of natural numbers upto N;
 // - Compute factorial!
 // - Find power of number
-// - Flatten the array. [1,[2,[3,4,[1,2,[1]],2],[2,3]]] = [1,2,3,4,1,2,1,2,2,3]
-// - Reverse the string "Usama Mohsin" = "nishoM amasU"
-
 // - Find Taylor Series upto eX terms
 // - Find Fib Series
 // - Find Combination nCr using recursion
-// - Solve the puzzle of tower of honai
-// - Given an array of strings, capitalize the first letter of each string in the array.
+
+// - Flatten the array. [1,[2,[3,4,[1,2,[1]],2],[2,3]]] = [1,2,3,4,1,2,1,2,2,3]
 // - Find maximum number in the array
+// - Find first index of number
+// - Find last index of given number
+// - Get All index of array against a given number
+
+// - Reverse the string "Usama Mohsin" = "nishoM amasU"
+// - Given an array of words, return a new array containing each word capitalized
+// - Given an array of strings, capitalize the first letter of each string in the array.
 // - Check if string is Palindrome
+// - Find permuation of given string! 
+// - Return all subsequence in a string
+// - Return distinct characters (remove duplicates)
+// - Remove char from string 
+
+// - Solve the puzzle of tower of honai
+// - Return keypad patterns against a given number 1->abc 2->cde
 // - Write a recursive function called someRecursive which accepts an array and a callback.
 //   The function returns true if a single value in the array returns true when passed to the callback.
 //   Otherwise it returns false.
 // - NestedEvenSum: Write a recursive function called nestedEvenSum. Return the sum of all even numbers
 //   in an object which may contain nested objects.
-// - Given an array of words, return a new array containing each word capitalized
-// - Write a function called stringifyNumbers which takes in an object and
-//   finds all of the values which are numbers and converts them to strings
+// - Write a function called stringifyNumbers which takes in an object and finds all of the values which are numbers and converts them to strings
 // - Write a function called collectStrings which accepts an object and
 //   returns an array of all the values in the object that have a typeof string
-// - Find first index of number
-// - Find last index of given number
-// - Get All index of array against a given number
-// - Remove char from string 
-// - Return distinct characters (remove duplicates)
-// - Return all subsequence in a string
-// - Return keypad patterns against a given number
-// - Find permuation of given string! 
 // ---------------------------------------------------------------------------------------
 
 // - Compute the sum of natural numbers upto N;
@@ -73,12 +74,24 @@ function flattenArray(arr) {
 
 // - Reverse the string "Usama Mohsin" = "nishoM amasU"
 function reverseString(str) {
-    return str.length > 1 ? 
-        str[str.length - 1] + reverseString(str.substring(0, str.length - 1)) : 
+    return str.length > 1 ?
+        str[str.length - 1] + reverseString(str.substring(0, str.length - 1)) :
         str;
 }
 
-// - Find Fib Series
-function fibonacciSeries(upperLimit) {
+// - Find maximum number in the array
+function maxNumber(arr) {
 
+    if (arr.length <= 1) {
+        return arr.length === 0 ? 0 : arr[0];
+    }
+
+    if (arr[0] < arr[1]) {
+        arr.shift();
+    }
+    else {
+        arr.splice(1, 1);
+    }
+
+    return maxNumber(arr);
 }
