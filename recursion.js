@@ -85,3 +85,13 @@ function maxNumber(arr) {
 
     return Math.max(arr[0], maxNumber(arr.slice(1)));
 }
+
+function firstIndex(arr, num) {
+    if (!arr.length) return -1;
+
+    if (arr[0] === num) return 0;
+
+    const result = firstIndex(arr.slice(1), num);
+    return result >= 0 ? result + 1 : -1;
+
+}
