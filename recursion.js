@@ -58,8 +58,7 @@ function powerOfNumber(number, exponent) {
 
 // - Flatten the array. [1,[2,[3,4,[1,2,[1]],2],[2,3]]] = [1,2,3,4,1,2,1,2,2,3]
 function flattenArray(arr) {
-    let result = [];
-
+    const result = [];
     for (const v of arr) {
         if (Array.isArray(v)) {
             result.push(...flattenArray(v));
@@ -68,7 +67,6 @@ function flattenArray(arr) {
             result.push(v);
         }
     }
-
     return result;
 }
 
@@ -81,17 +79,9 @@ function reverseString(str) {
 
 // - Find maximum number in the array
 function maxNumber(arr) {
-
     if (arr.length <= 1) {
-        return arr.length === 0 ? 0 : arr[0];
+        return arr.length === 0 ? Number.MIN_SAFE_INTEGER : arr[0];
     }
 
-    if (arr[0] < arr[1]) {
-        arr.shift();
-    }
-    else {
-        arr.splice(1, 1);
-    }
-
-    return maxNumber(arr);
+    return Math.max(arr[0], maxNumber(arr.slice(1)));
 }
