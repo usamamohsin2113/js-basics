@@ -86,6 +86,7 @@ function maxNumber(arr) {
     return Math.max(arr[0], maxNumber(arr.slice(1)));
 }
 
+// - Find first index of number
 function firstIndex(arr, num) {
     if (!arr.length) return -1;
 
@@ -93,5 +94,11 @@ function firstIndex(arr, num) {
 
     const result = firstIndex(arr.slice(1), num);
     return result >= 0 ? result + 1 : -1;
+}
 
+// - Find last index of given number
+function lastIndex(arr, num) {
+    if (!arr.length) return -1;
+
+    return (arr[arr.length - 1] === num) ? arr.length - 1 : lastIndex(arr.slice(0, arr.length - 1), num);
 }
